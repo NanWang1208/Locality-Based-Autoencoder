@@ -1,1 +1,1 @@
-# Locality-Based-Autoencoder
+# Locality-based transfer learning
