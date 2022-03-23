@@ -28,12 +28,12 @@ Currently, the only way to specify a theoretical compression ratio is to modify 
 * `-o` for compression error information (only in compression step)
 
 #### Examples
-* Example with "train.txt" as a training file and "data.txt" as a file to compress: `python3 Autoencoder_Prototype.py -r train.txt -c data.txt`
-* Example with "test.bin" as a file to compress and an error bound of 10%: `python3 Autoencoder_Prototype.py -c test.bin -e 0.1` (Note: In order to compress, weights and biases must have been previously generated. The weights and biases should be in the same folder as the current working directory and autoencoder code.)
-* Example with "p.z" as a file to decompress: `python3 Autoencoder_Prototype.py -d p.z` (Note: In this case, "p.z" must be the output file from the compression step of the autoencoder.)
+* Example with "train.txt" as a training file and "data.txt" as a file to compress: `python3 cae_log_norm.py -r train.txt -c data.txt`
+* Example with "test.bin" as a file to compress and an error bound of 10%: `python3 cae_log_norm.py -c test.bin -e 0.1` (Note: In order to compress, weights and biases must have been previously generated. The weights and biases should be in the same folder as the current working directory and autoencoder code.)
+* Example with "p.z" as a file to decompress: `python3 cae_log_norm.py -d p.z` (Note: In this case, "p.z" must be the output file from the compression step of the autoencoder.)
 
 #### Notes
 * Compression and decompression cannot be done together.
 * If an error bound is specified, then a file for compression must be specified as well. (However, it is possible to specify a file for compression without specifying an error bound.)
 * The compression step will produce a .z file, as well as several other files. All the files should be kept there for decompression; however, when entering the command to start the autoencoder for decompression, only the .z file needs to be specified.
-* `Autoencoder_Prototype.py` is the main version of the autoencoder. `simplified_autoencoder.py` is a simplified version that only includes the training and testing portions and does not include an error bound; it is designed to be used in Google Colaboratory and is not meant for as general uses as the main version is.
+* `cae_log_norm.py` is the log scale normalization version of the autoencoder-based error-bounded compressor. `ae_new_normalization_912.py` is the min-max normalization version that input data will be normalized by using Min-Max method instead of log scale to prevent number jump issue.
